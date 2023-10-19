@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Main
+{
+  public static void main (String[]args)
+  {
+    Scanner scanner = new Scanner (System.in);
+
+      HashMap < String, String > diccionario = new HashMap <> ();
+      diccionario.put ("hola", "hello");
+      diccionario.put ("adiC3s", "goodbye");
+      diccionario.put ("gracias", "thanks");
+      diccionario.put ("por favor", "please");
+      diccionario.put ("permiso", "excuse me");
+      diccionario.put ("disculpa", "sorry");
+      diccionario.put ("hora", "hour");
+      diccionario.put ("ropa", "cloth");
+      diccionario.put ("cara", "face");
+      diccionario.put ("padre", "father");
+      diccionario.put ("madre", "mother");
+      diccionario.put ("primo", "cousin");
+      diccionario.put ("abuelo", "grandfather");
+      diccionario.put ("abuela", "granmother");
+      diccionario.put ("rojo", "red");
+      diccionario.put ("azul", "blue");
+      diccionario.put ("amarillo", "yellow");
+      diccionario.put ("negro", "black");
+      diccionario.put ("white", "blanco");
+      diccionario.put ("programar", "coding");
+      
+      
+      System.out.println("Ingrese la palabra en español");
+      String palabra = scanner.nextLine();
+      
+      String traduccion = diccionario.get(palabra);
+      if (traduccion != null){
+          System.out.println("La traducción al inglés es: " + traduccion);
+      } else {
+          System.out.println("No se ha encontrado la palabra en el diccionario.");
+      }
+
+  }
+}
