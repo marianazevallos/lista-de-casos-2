@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        HashMap<String, String> usuariosYContraseñas = new HashMap<>();
+        usuariosYContraseñas.put("usuario1", "p2034949");
+        usuariosYContraseñas.put("usuario2", "a8983938");
+        usuariosYContraseñas.put("usuario3", "j9048933");
+
+        int intentos = 3;
+
+        while (intentos > 0) {
+            System.out.print("Usuario: ");
+            String usuario = scanner.nextLine();
+            System.out.print("Contraseña: ");
+            String contraseña = scanner.nextLine();
+
+            if (usuariosYContraseñas.containsKey(usuario) && usuariosYContraseñas.get(usuario).equals(contraseña)) {
+                System.out.println("Ha accedido al área restringida.");
+                break;
+            } else {
+                intentos--;
+                System.out.println("Usuario o contraseña incorrectos. Intentos restantes: " + intentos);
+            }
+        }
+
+        if (intentos == 0) {
+            System.out.println("Lo siento, no tiene acceso al área restringida.");
+        }
+
+        scanner.close();
+    }
+}
