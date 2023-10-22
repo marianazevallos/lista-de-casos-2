@@ -1,0 +1,64 @@
+import java.util.Random;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class Main
+{
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> baraja = new HashMap<>();
+        baraja.put("as", 11);
+        baraja.put("tres", 10);
+        baraja.put("sota", 2);
+        baraja.put("caballo", 3);
+        baraja.put("rey", 4);
+
+        ArrayList<String> cartas = new ArrayList<>();
+        cartas.add("as de oros");
+        cartas.add("dos de oros");
+        cartas.add("tres de oros");
+        cartas.add("cuatro de oros");
+        cartas.add("cinco de oros");
+        cartas.add("seis de oros");
+        cartas.add("siete de oros");
+        cartas.add("sota de oros");
+        cartas.add("caballo de oros");
+        cartas.add("rey de oros");
+        cartas.add("dos de copas");
+        cartas.add("tres de copas");
+        cartas.add("cuatro de copas");
+        cartas.add("cinco de copas");
+        cartas.add("seis de copas");
+        cartas.add("siete de copas");
+        cartas.add("sota de copas");
+        cartas.add("caballo de copas");
+        cartas.add("rey de copas");
+
+        Random random = new Random();
+        for (int i = 0; i < cartas.size(); i++) {
+            int j = random.nextInt(cartas.size());
+            String temp = cartas.get(i);
+            cartas.set(i, cartas.get(j));
+            cartas.set(j, temp);
+        }
+
+        ArrayList<String> mano = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            mano.add(cartas.get(i));
+        }
+
+        int puntos = 0;
+        for (String carta : mano) {
+            String figura = carta.split(" ")[0].toLowerCase();
+            if (baraja.containsKey(figura)) {
+                puntos += baraja.get(figura); 
+            }
+        }
+
+        for (String carta : mano) {
+            System.out.println(carta);
+        }
+
+        System.out.println("Tienes " + puntos + " puntos");
+    }
+}
