@@ -1,0 +1,63 @@
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Random;
+
+public class Main
+{
+  public static void main (String[]args)
+  {
+    Scanner scanner = new Scanner (System.in);
+
+      HashMap < String, String > diccionario = new HashMap <> ();
+      diccionario.put ("hola", "hello");
+      diccionario.put ("adiC3s", "goodbye");
+      diccionario.put ("gracias", "thanks");
+      diccionario.put ("por favor", "please");
+      diccionario.put ("permiso", "excuse me");
+      diccionario.put ("disculpa", "sorry");
+      diccionario.put ("hora", "hour");
+      diccionario.put ("ropa", "cloth");
+      diccionario.put ("cara", "face");
+      diccionario.put ("padre", "father");
+      diccionario.put ("madre", "mother");
+      diccionario.put ("primo", "cousin");
+      diccionario.put ("abuelo", "grandfather");
+      diccionario.put ("abuela", "granmother");
+      diccionario.put ("rojo", "red");
+      diccionario.put ("azul", "blue");
+      diccionario.put ("amarillo", "yellow");
+      diccionario.put ("negro", "black");
+      diccionario.put ("white", "blanco");
+      diccionario.put ("programar", "coding");
+      
+      
+     String[] palabrasEspañol = diccionario.keySet().toArray(new String[0]);
+
+        Random random = new Random();
+
+        int respuestasCorrectas = 0;
+        int respuestasIncorrectas = 0;
+
+        System.out.println("Traduce al inglés las siguientes palabras:");
+
+        for (int i = 0; i < 5; i++) {
+            int indicePalabra = random.nextInt(palabrasEspañol.length);
+            String palabraEspañol = palabrasEspañol[indicePalabra];
+            String traduccionCorrecta = diccionario.get(palabraEspañol);
+
+            System.out.print("Palabra en español: " + palabraEspañol + " - Traducción al inglés: ");
+            String respuestaUsuario = scanner.nextLine();
+
+            if (respuestaUsuario.equalsIgnoreCase(traduccionCorrecta)) {
+                System.out.println("¡Correcto!");
+                respuestasCorrectas++;
+            } else {
+                System.out.println("Incorrecto. La respuesta correcta es: " + traduccionCorrecta);
+                respuestasIncorrectas++;
+            }
+        }
+
+        System.out.println("Respuestas correctas: " + respuestasCorrectas);
+        System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
+    }
+}
